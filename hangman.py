@@ -29,8 +29,6 @@ def main():
                 print("Good try but {} is not in the word!". format(userInput))
                 print("Challenge status: {}".format(' '.join(result)))
 
-
-        #if letter or letter are not inputed
         else:
             print('Letter only please!')
 

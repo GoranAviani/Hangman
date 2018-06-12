@@ -24,15 +24,13 @@ def choose_word(wordList):
 #If the given letter is in the word , result is returned in format ex. ***A*
 def guess_letter(userInput, word, result):
 
-
     for pos, x in enumerate(word):
         if x == userInput:
             result[pos] = x
 
     return(word, result)
 
-#Check if the word is solved, if there are still '*' in the result that means it is not,
-# but if there are no '*' then return result = 'solved'
+#Check if the word is solved, if there are still '*' in the result var that means it is not solved.
 def check_if_solved(word, result):
     if '*' in result:
         return(word, result)
