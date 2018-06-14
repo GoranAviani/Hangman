@@ -40,7 +40,7 @@ def check_if_solved(word, result):
 
 
 def add_new_word(wordList):
-    print("*** Hangman Editor ***\nEnter new word or type [B] to go [B]ack.")
+    print("*** Hangman Editor ***\n--------------------------------------------------\nEnter new word or type [B] to go [B]ack.")
     userNewWord = input("Command: ")
 
     if userNewWord.upper() == "B":

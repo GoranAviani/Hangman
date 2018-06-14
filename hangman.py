@@ -1,13 +1,17 @@
 import calculation
 
 def list_words(wordList):
-    print(wordList)
-    return wordList
+    print("\n       ***List of words in the game:***\n-------------------------------------------------------\n\n" + ', '.join(wordList))
+    anyKey = input("\n\n***Press any key and press Enter to return to main menu***")
+
+    if len(anyKey) > 0:
+        return wordList
 
 
 def main_menu():
-    userCommand = input("***Wellcome to Hangman's MAIN MENU!***\n* If you want to add new words to Hangman enter [N]\n* IF you want to list all word enter [L]"
-                        "\n* If you want to start the game enter [G]\n* Enter [X] to exit game*\n***** Your command: ")
+    userCommand = input("\n\n       ***Wellcome to Hangman's MAIN MENU!***\n\n-------------------------------------------------------\n* If you want to add new words to Hangman enter [N]\n* IF you want to list all word enter [L]"
+                        "\n* If you want to start the game enter [G]\n* Enter [X] to exit game*\n-------------------------------------------------------"
+                        "\n\nYour command: ")
     return userCommand
 
 
