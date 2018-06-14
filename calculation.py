@@ -1,5 +1,6 @@
 import random
 
+#User input is processed
 def user_input():
     userInput = input('Enter one letter: ')
     userInput = userInput.upper()
@@ -38,23 +39,30 @@ def check_if_solved(word, result):
         result = 'solved'
         return(word, result)
 
-
+#Adding new word to the word list
 def add_new_word(wordList):
+    #print("rici" + ''.join(wordList))
     print("*** Hangman Editor ***\n--------------------------------------------------\nEnter new word or type [B] to go [B]ack.")
     userNewWord = input("Command: ")
 
+
+    #If user wants back just return to main menu with the wordlist
     if userNewWord.upper() == "B":
         return wordList
     else:
         while True:
+            #confirmation of adding word
             userConfirmation = input("Are you sure you want to add {} to Hangman? Type [Y]es or [N]o: ".format(userNewWord))
+            #if confirmed add the word and return to main menu
             if userConfirmation.upper() == "Y":
+                #print("rici" + ''.join(wordList))
                 wordList.append(userNewWord.upper())
                 print("Word {} succesfully added".format(userNewWord))
                 return wordList
+            #if not confirmed return to main manu
             elif userConfirmation.upper() == "N":
-                print("OK the word wont be added")
+                print("OK the word won't be added")
                 return wordList
             else:
-                print("I dont undestand the command.")
+                print("I don't undestand the command.")
 

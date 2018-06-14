@@ -1,7 +1,7 @@
 import calculation
 
 def list_words(wordList):
-    print("\n       ***List of words in the game:***\n-------------------------------------------------------\n\n" + ', '.join(wordList))
+    print("\n\n       ***List of words in the game:***\n\n-------------------------------------------------------\n\n" + ', '.join(wordList) + "\n-------------------------------------------------------")
     anyKey = input("\n\n***Press any key and press Enter to return to main menu***")
 
     if len(anyKey) > 0:
@@ -45,7 +45,7 @@ def main():
         elif userCommand.upper() == "G":
 
             while True:
-                print("\nGame status: {}\n".format(' '.join(result)))
+                print("\n\n-------------------------------------------------------\nGame status: {}\n".format(' '.join(result)))
                 userInput = calculation.user_input()
 
                 if userInput.upper() == "EXIT":
@@ -61,6 +61,7 @@ def main():
 
                     elif userInput in word:
                         word, result = (calculation.guess_letter(userInput, word, result))
+                        #Checking if the word is solved
                         word, result = calculation.check_if_solved(word, result)
                         if result == 'solved':
                             print("Bravo!, the word was {} and you solved it!". format(''.join(word)))
