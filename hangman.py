@@ -12,15 +12,17 @@ def main_menu():
 
 
 
-
 def main():
     wordList = ['CAT', 'HOUSE', "STOCKHOLM", "PYTHON"]
     word = calculation.choose_word(wordList)
     word, result = calculation.process_word(word)
-
+    isGameFinished = False
    # userCommand = main_menu()
 
     while True:
+        #If the player guessed the challenge exit
+        if isGameFinished == True:
+            break
         userCommand = main_menu()
 
         #add new words
@@ -39,6 +41,7 @@ def main():
         elif userCommand.upper() == "G":
 
             while True:
+                print("\nGame status: {}\n".format(' '.join(result)))
                 userInput = calculation.user_input()
 
                 if userInput.upper() == "EXIT":
@@ -57,14 +60,15 @@ def main():
                         word, result = calculation.check_if_solved(word, result)
                         if result == 'solved':
                             print("Bravo!, the word was {} and you solved it!". format(''.join(word)))
+                            #To exit other while loop
+                            isGameFinished = True
                             break
 
                         print(word)
-                        print("Current status: {}".format(' '.join(result)))
+                        #print("Current status: {}".format(' '.join(result)))
 
                     elif userInput not in word:
                         print("Good try but {} is not in the word!". format(userInput))
-                        print("Challenge status: {}".format(' '.join(result)))
 
                 else:
                     print('Letter only please!')
