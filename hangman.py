@@ -17,7 +17,8 @@ def main_menu():
 
 
 def main():
-    wordList = ['CAT', 'HOUSE', "STOCKHOLM", "PYTHON"]
+    wordList = (calculation.load_from_file())
+
     word = calculation.choose_word(wordList)
     word, result = calculation.process_word(word)
     isGameFinished = False
@@ -32,6 +33,7 @@ def main():
         #add new words
         if userCommand.upper() == "N":
             wordList = calculation.add_new_word(wordList)
+            calculation.save_to_file(wordList)
 
         elif userCommand.upper() == "L":
             wordList = list_words(wordList)

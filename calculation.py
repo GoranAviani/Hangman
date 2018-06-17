@@ -1,4 +1,5 @@
 import random
+import json
 
 #User input is processed
 def user_input():
@@ -76,7 +77,21 @@ def add_new_word(wordList):
 
 # Checking if word is already in the game memory.
 def check_if_word_exists(userNewWord, wordList):
-    if userNewWord.upper() in wordList:
+    print("user new word je {}".format(userNewWord))
+    if str(userNewWord.upper()) in wordList:
         return("There is already '{}' in the memory!".format(userNewWord)), wordList
     else:
         return ("OK"), wordList
+
+
+def save_to_file(wordList):
+    with open('hangman.memory', 'w') as file:
+        json.dump(wordList, file)
+        file.close()
+
+def load_from_file():
+    with open('hangman.memory', 'r') as file:
+        wordList = json.load(file)
+
+    file.close()
+    return wordList
