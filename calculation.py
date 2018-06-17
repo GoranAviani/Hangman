@@ -51,18 +51,32 @@ def add_new_word(wordList):
         return wordList
     else:
         while True:
-            #confirmation of adding word
-            userConfirmation = input("Are you sure you want to add {} to Hangman? Type [Y]es or [N]o: ".format(userNewWord))
-            #if confirmed add the word and return to main menu
-            if userConfirmation.upper() == "Y":
-                #print("rici" + ''.join(wordList))
-                wordList.append(userNewWord.upper())
-                print("Word {} succesfully added".format(userNewWord))
-                return wordList
-            #if not confirmed return to main manu
-            elif userConfirmation.upper() == "N":
-                print("OK the word won't be added")
-                return wordList
-            else:
-                print("I don't undestand the command.")
+            #Checking if word alredy exists in memory
+            checkMessage, wordList = check_if_word_exists(userNewWord, wordList)
+            if checkMessage == "OK":
 
+                #confirmation of adding word
+                userConfirmation = input("Are you sure you want to add {} to Hangman? Type [Y]es or [N]o: ".format(userNewWord))
+                #if confirmed add the word and return to main menu
+                if userConfirmation.upper() == "Y":
+                    #print("rici" + ''.join(wordList))
+                    wordList.append(userNewWord.upper())
+                    print("Word {} succesfully added".format(userNewWord))
+                    return wordList
+                #if not confirmed return to main manu
+                elif userConfirmation.upper() == "N":
+                    print("OK the word won't be added")
+                    return wordList
+                else:
+                    print("I don't undestand the command.")
+
+            else:
+                print(checkMessage)
+                return wordList
+
+# Checking if word is already in the game memory.
+def check_if_word_exists(userNewWord, wordList):
+    if userNewWord.upper() in wordList:
+        return("There is already '{}' in the memory!".format(userNewWord)), wordList
+    else:
+        return ("OK"), wordList
