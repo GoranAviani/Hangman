@@ -21,6 +21,7 @@ def main():
 
     word = calculation.choose_word(wordList)
     word, result = calculation.process_word(word)
+
     isGameFinished = False
    # userCommand = main_menu()
 
