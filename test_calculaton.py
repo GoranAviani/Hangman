@@ -30,14 +30,23 @@ class HangmanTestCase(unittest.TestCase):
         self.assertEqual(result, 'solved')
 
 
+    def test_check_if_word_exists_it_does(self):
+        result, wordlist = calculation.check_if_word_exists("CAT", ["MOUSE", "CAR", "CAT"])
+        self.assertEqual(result, "There is already 'CAT' in the memory!")
+
+    def test_check_if_word_exists_it_does_not(self):
+        result, wordlist = calculation.check_if_word_exists("CAT", ["MOUSE", "CAR", "HOUSE"])
+        self.assertEqual(result, "OK")
+
+
+
+
 """
-# Check if the word is solved, if there are still '*' in the result var that means it is not solved.
-def check_if_solved(word, result):
-    if '*' in result:
-        return (word, result)
+# Checking if word is already in the game memory.
+def check_if_word_exists(userNewWord, wordList):
+    print("user new word je {}".format(userNewWord))
+    if str(userNewWord.upper()) in wordList:
+        return ("There is already '{}' in the memory!".format(userNewWord)), wordList
     else:
-        result = 'solved'
-        return (word, result)
+        return ("OK"), wordList
 """
-
-

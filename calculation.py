@@ -59,7 +59,6 @@ def add_new_word(wordList):
                 userConfirmation = input("Are you sure you want to add {} to Hangman? Type [Y]es or [N]o: ".format(userNewWord))
                 #if confirmed add the word and return to main menu
                 if userConfirmation.upper() == "Y":
-                    #print("rici" + ''.join(wordList))
                     wordList.append(userNewWord.upper())
                     print("Word {} succesfully added".format(userNewWord))
                     return wordList
