@@ -19,4 +19,25 @@ class HangmanTestCase(unittest.TestCase):
         self.assertEqual(result, ['*', '*', '*', 'H', '*', '*'])
 
 
+    def test_check_if_solved(self):
+        word, result = calculation.check_if_solved(['P', 'Y', 'T', 'H', 'O', 'N'], ['*', '*', '*', 'H', '*', '*'])
+        self.assertEqual(word, ['P', 'Y', 'T', 'H', 'O', 'N'])
+        self.assertEqual(result, ['*', '*', '*', 'H', '*', '*'])
+
+    def test_check_if_solved_it_is_solved(self):
+        word, result = calculation.check_if_solved(['P', 'Y', 'T', 'H', 'O', 'N'], ['P', 'Y', 'T', 'H', 'O', 'N'])
+        self.assertEqual(word, ['P', 'Y', 'T', 'H', 'O', 'N'])
+        self.assertEqual(result, 'solved')
+
+
+"""
+# Check if the word is solved, if there are still '*' in the result var that means it is not solved.
+def check_if_solved(word, result):
+    if '*' in result:
+        return (word, result)
+    else:
+        result = 'solved'
+        return (word, result)
+"""
+
 

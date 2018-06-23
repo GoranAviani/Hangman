@@ -72,7 +72,7 @@ def main():
                             isGameFinished = True
                             break
 
-                        print(word)
+                        #print(word)
                         #print("Current status: {}".format(' '.join(result)))
 
                     elif userInput not in word:
