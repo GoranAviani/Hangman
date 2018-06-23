@@ -25,7 +25,6 @@ def choose_word(wordList):
 
 #If the given letter is in the word , result is returned in format ex. ***A*
 def guess_letter(userInput, word, result):
-
     for pos, x in enumerate(word):
         if x == userInput:
             result[pos] = x

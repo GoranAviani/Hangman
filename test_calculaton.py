@@ -14,15 +14,9 @@ class HangmanTestCase(unittest.TestCase):
         self.assertEqual(result, ['*', '*', '*', '*', '*', '*', '*', '*', '*'])
 
 
-"""
-#Processes the word to a list for further use, and make result list
-def process_word(word):
-    processedWord =[]
-    result = []
+    def test_guess_letter(self):
+        word, result = calculation.guess_letter("H", ['P', 'Y', 'T', 'H', 'O', 'N'], ['*', '*', '*', '*', '*', '*'])
+        self.assertEqual(result, ['*', '*', '*', 'H', '*', '*'])
 
-    for x in word:
-        processedWord.append(x)
-        result.append('*')
 
-    return (processedWord, result)
-"""
+
