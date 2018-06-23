@@ -38,15 +38,3 @@ class HangmanTestCase(unittest.TestCase):
         result, wordlist = calculation.check_if_word_exists("CAT", ["MOUSE", "CAR", "HOUSE"])
         self.assertEqual(result, "OK")
 
-
-
-
-"""
-# Checking if word is already in the game memory.
-def check_if_word_exists(userNewWord, wordList):
-    print("user new word je {}".format(userNewWord))
-    if str(userNewWord.upper()) in wordList:
-        return ("There is already '{}' in the memory!".format(userNewWord)), wordList
-    else:
-        return ("OK"), wordList
-"""
