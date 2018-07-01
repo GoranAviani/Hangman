@@ -46,7 +46,7 @@ def main():
 
         #start game
         elif userCommand.upper() == "G":
-
+            roundCounter = 0
             while True:
                 print("\n\n-------------------------------------------------------\nGame status: {}\n".format(' '.join(result)))
                 userInput = calculation.user_input()
@@ -63,21 +63,25 @@ def main():
                         print('Only one letter please!')
 
                     elif userInput in word:
+                        roundCounter += 1
                         word, result = (calculation.guess_letter(userInput, word, result))
                         #Checking if the word is solved
                         word, result = calculation.check_if_solved(word, result)
+
                         if result == 'solved':
-                            print("Bravo!, the word was {} and you solved it!". format(''.join(word)))
+                            print("Bravo!, the word was {0} and you solved it in {1} tries!" .format((''.join(word)), roundCounter))
                             #To exit other while loop
                             isGameFinished = True
                             break
-
+                        else:
+                            print("Number of tries {}.".format(roundCounter))
                         #print(word)
                         #print("Current status: {}".format(' '.join(result)))
 
                     elif userInput not in word:
+                        roundCounter += 1
                         print("Good try but {} is not in the word!". format(userInput))
-
+                        print("Number of tries {}.".format(roundCounter))
                 else:
                     print('Letter only please!')
             else:
