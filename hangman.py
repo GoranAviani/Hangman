@@ -20,6 +20,7 @@ def main():
     wordList = (calculation.load_from_file())
 
     word = calculation.choose_word(wordList)
+    wordLength = len(word)
     word, result = calculation.process_word(word)
 
     isGameFinished = False
@@ -63,8 +64,9 @@ def main():
                         print('Only one letter please!')
 
                     elif userInput in word:
-                        roundCounter += 1
                         word, result = (calculation.guess_letter(userInput, word, result))
+                        roundCounter += 1
+
                         #Checking if the word is solved
                         word, result = calculation.check_if_solved(word, result)
 
@@ -73,6 +75,10 @@ def main():
                             #To exit other while loop
                             isGameFinished = True
                             break
+
+                        elif wordLength * 2 == roundCounter:
+                            print("You used all turns, and you didnt finish the game. Better luck next time!")
+                            break
                         else:
                             print("Number of tries {}.".format(roundCounter))
                         #print(word)
@@ -80,6 +86,9 @@ def main():
 
                     elif userInput not in word:
                         roundCounter += 1
+                        if wordLength * 2 == roundCounter:
+                            print("You used all turns, and you didn't finish the game. Better luck next time!")
+                            break
                         print("Good try but {} is not in the word!". format(userInput))
                         print("Number of tries {}.".format(roundCounter))
                 else:
