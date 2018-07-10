@@ -11,6 +11,28 @@ This version of Hangman is single-player so the game picks randomly a word from 
 
 Words in the memory can be added by player from the Main menu.
 
+## Main Menu
+
+From the main menu player can start the game, enter new words in game memory, list all the words in the game memory or exit the game.
+
+
+Preview:
+
+
+`***Wellcome to Hangman's MAIN MENU!***`
+
+`-------------------------------------------------------`
+
+
+`* If you want to add new words to Hangman enter [N]`
+
+`* IF you want to list all word enter [L]`
+
+`* If you want to start the game enter [G]`
+
+`* Enter [X] to exit game*`
+
+`-------------------------------------------------------`
 
 
 
