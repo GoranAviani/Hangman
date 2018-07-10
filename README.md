@@ -65,3 +65,6 @@ Example:
 `Number of tries 2.`
 
 
+## Notes/ Additional Info
+
+* Once the player inputed wrongly number of letters that are two times the length of word (2 * len(word)) the game is over because player has used all his turns.
